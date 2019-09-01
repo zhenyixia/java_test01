@@ -22,7 +22,7 @@ public class DichotomySearch {
 
         int count = 1;
         while (startPos <= endPos) {
-            count++;
+
             int middleVal = arrays[middlePos];
             if (a == middleVal) {
                 System.out.println(a + ": -- " + count);
@@ -36,6 +36,7 @@ public class DichotomySearch {
             }
 
             middlePos = (startPos + endPos) / 2;
+            count++;
         }
         return -1;
     }
