@@ -1,0 +1,85 @@
+1，关于抽象类叙述正确的是？
+ 1,抽象类不能实现接口  2,抽象类必须有“abstract class"修饰
+ 3，抽象类必须包含抽象方法  4，抽象类也有类的特性，可以被实例化
+  正确答案:B你的答案:B(正确)
+
+  1，抽象类是可以实现接口的，而且抽象类也可以继承自抽象类
+  2，抽象类指有abstract修饰的class,其可以包含抽象方法，也可以不包含
+  3，抽象类和接口都是不能被实例化的，只有具体的类才可以被实例化。
+
+2,关于如下程序的描述哪个是正确的?
+  public class Person{
+    static int arr[]= new int[5);
+    public static void main(String al){
+      System.out.printIn(arr[0]):
+    }
+  }
+  A,编译将产生错误; B 编译时正确，但运行时将产生错误; C,正确，输出O;  D,正确，输出 null
+  正确答案:C 你的答案：B(错误)
+
+  类的成员变量若未赋值，则进行系统默认初始化。整形-》0，引用类型-》null，布尔类型-》false
+  方法内的局部变量则一定要赋值，不然会报错。这里要注意:
+  数组无论是在定义为实例变量还是局部变量，若没有初始化，都会被自动初始化
+
+3，用命令方式运行以下代码的运行结果是
+  public class f{
+    public static void main(String[] args){
+      String foo1 = args[1];
+      String foo2 = args[2];
+      String foo3 =args[3];
+    }
+  }
+  命令:java f a b c
+  1，程序编译错误；2， a b c； 3，程序运行错误；4，f;
+  正确答案: C你的答案:C 正确
+
+  该题出题不严谨，没有使用编译，应该首先使用 javac f.java 产生class文件，然后执行命令： java f.class a b c
+  而题目想要考察的是，数组下标越界。三个参数下标应该是，0，1，2
+
+4，(单选题)由3个“1和5个“0"组成的8位二进制补码，能表示的最小整数()
+  1,-126;   2,-125;  3,-32
+  正确答案:B  你的答案：C(错误
+
+  既然求最小整数，那肯定先想到负数，则最高位（符号位）一定为1，
+  原码中肯定是1所在的位数越高，值越小，而补码是由原码取反加1得到的，
+  则在补码中1所在的位数一定要越低，即补码为1000 0011；
+  由补码求得原码：1111 1101=2^7-1-2再取负，即128-3=125取负为125
+
+5，(单选题) What results from the fol10wing code fragment?
+  int i = 5;
+  int j = 10;
+  System.out.println(i + ~j);
+  A Compilation error because”~” doesn't operate on integers
+  B -5
+  C -6
+  D 15
+
+  答案为C，~是取反码的意思，10的原码码为：0000 1010，反码为：1111 0101变为负数，用补码存储，这里就是一个补码
+  把补码转为原码为：先-1：1111 0100，再取反：1000 1011即-11，+5 即为-6
+  1111 0101
+  0000 0101
+  1111 1010 -1为1111 1001，取反：1000 0110即-6
+
+6， Hashtble 和 HashMap的区别是:
+    A Hashtable 是一个哈希表，该类继承了 AbstractMap，实现了Map接口
+    B HashMap是内部基于哈希表实现，该类继承AbstractMap，实现Map接口
+    C Hashtable线程安全的，而HashMap是线程不安全的
+    D Properties类继承了Hashtable类，而 Hashtable类则继承Dictionary类
+    E HashMap允许将nul 作为一个 entry 的 key或者value, 而 Hashtable 不允许。
+
+  选B，C，D，E
+  1，Hashtable 是一个散列表，它存储的内容是键值对key-value映射
+  2，Hashtable的函数都是同步的，这意味着它是线程安全的。它的key value都不可以为null
+  3，HashTable直接使用对象的hashCode
+
+  4，HashMap由数组+链表组成的，基于哈希表的Map实现，数组是HashMap的主体，链表则是主要为了解决哈希冲突而存在的。
+  5，不是线程安全的，HashMap可以接受为null的键和值
+  6，HashMap重新计算hash值。
+
+7， 有关线程的哪些叙述是对的()
+    A 一旦一个线程被创建，它就立即开始运行。
+    B 使用start()方法可以使一个线程成为可运行的，但是它不一定立即开始运行。
+    c 当一个线程因为抢先机制而停止运行，它可能被放在可运行队列的前面。
+    D 一个线程可能因为不同的原因停止并进入就绪状态。
+
+   正确答案：B C D

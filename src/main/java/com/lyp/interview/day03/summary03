@@ -1,0 +1,61 @@
+1，先进先出的容器是队列Queue?
+   先进后出是堆栈
+   这两种数据结构的实现参考类：QueueAndStack
+
+2, 1ist是一个ArrayList的对象，哪个选项的代码填到//todo delete处，可以在Iterator遍历的过程中正确并安全的删除一个1ist中保存的对象?（)
+    Iterator it = list.iterator()
+    int index = 0:
+    while (it.hasNext())
+      Object obj = it.next();
+      if (needDe1ete(obj)) //needDe1ete返回boolean, ，决定是否要删除
+      //todo delete index +t; it.removeO):
+
+      index++;
+    A，it.remove();
+    B，1ist. remove (obj):
+    C, list.remove(index):
+    D, list. remove(obj, index);
+
+    正确答案:A
+参考ListRemove类的三种remove元素方法。
+
+3，在各自最优条件下，对k个数进行排序，哪个算法复杂度最低的是?
+      A 插入排序
+      B 快速排序
+      C 堆排序
+      D 归并排序
+
+  选A
+  参考各排序算法的复杂度.jpg
+
+4， ArrayLists和LinkedList的区别，下述说法正确的有?
+A， ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。
+B， 对于随机访问get和set, ArrayList觉得优于LinkedList,因为LinkedList要移动指针。
+C， 对于新增和删除操作add和remove, LinkedList比较占优势，因为ArrayList要移动数据。
+D，ArrayList的空间浪费主要体现在在1ist列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在
+它的每一个元素都需要消耗相当的空间。
+ 正确答案:ABCD
+ 解析：
+ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。
+正确，这里的所谓动态数组并不是那个”有多少元素就申请多少空间”的意思，通过查看源码，可以发现，这个动态数组是这样实现的，
+如果没指定数组大小，则申请默认大小为10的数组，当元素个数增加，数组无法存储时，系统会另个申请一个长度为当前长度1.5倍的数组，
+然后，把之前的数据拷贝到新建的数组。
+B.对于随机访问get和set, ArrayList觉得优于LinkedList,因为LinkedList要移动指针。
+//正确，ArrayList是数组，所以，直接定位到相应位置取元素，LinkedLIst是链表，所以需要从前往后遍历。
+C.对于新增和册除操作add和remove, LinedList比较占优势，因为ArrayList要移动数据。
+//正确，ArrayList的新增和册除就是数组的新增和册除，LinkedList与链表一致。
+D. ArrayList的空间浪费主要体现在在1ist列表的结尾预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要
+消耗相当的空间。
+//正确，因为ArrayList空间的增长率为1.5倍，所以，最后很可能留下一部分空间是没有用到的，因此，会造成浪费的情况。
+对于LInkedList的话，由于每个节点都需要额外的指针，所以，你懂的。
+
+5， 关于Java中的数组，下面的一些描述，哪些描述是准确的:
+   A 数组是一个对象，不同类型的数组具有不同的类
+   B 数组长度是可以动态调整的
+   C 数组是一个连续的存储结构
+   D 一个固定长度的数组可类似这样定义:int array[100]
+   E 两个数组用equa1s方法比较时，会逐个便利其中的元素，对每个元素进行比较
+   F 可以二维数组，且可以有多维数组，都是在Java中合法的
+   正确答案:ACF
+
+   关于不同类型的数上个月不同的类，参考ArrayClass.java

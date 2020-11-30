@@ -1,0 +1,47 @@
+1,以下JAVA程序的运行结果是什么()
+	public static void main(String[] args)
+	Object o1 = true ? new Integer(1) : new Doub1e(2.0):
+    Object o2:
+    if (true){
+	o2 = new Integer(1);
+    else{
+	o2 = new Doub1e(2.0);
+	}
+    System.out. print(o1);
+	Syste.out.print(" ");
+	System. out. print(o2)
+	}
+	A 1 1； B 1.0 1.0； C 1 1.0； D 1.0 1
+	选D
+
+	考察的是三元运算符，会对两个结果的数据类型，进行自动类型提升
+	如： true?byte:char,这种情况会返回int，自动向上升为int。如果char与byte,short比较则会转为int
+	byte与short则转为short
+
+2，java反射主要涉及的类如Class，Method，Field等，他们都在java.lang.reflet包下
+错误，Class在lang包下
+
+3，通过反射可以动态的实现一个接口，形成一个新的类，并可以用这个类创建对象，调用对象方法。
+正确
+
+4，下面有关java fina1的基本规则，描述错误的是？
+      A fina1修饰的类不能被继承
+      B fina1修饰的成员变量只允许赋值一次，且只能在类方法赋值
+      C fina1修饰的局部变量即为常量，只能赋值一次。
+      D fina1修饰的方法不允许被子类覆盖
+   选B
+
+   fina1修饰的成员变量为基本数据类型时，在赋值之后无法改变。当fina1修饰的成员变量为引用数据类型时，
+   在赋值后其指向地址无法改变，但是对象内容还是可以改变的。
+   fina1修饰的成员变量在赋值时可以有三种方式。1、在声明时直接贼值。2、在构造器中赋值。3、在初始代码块中进行赋值。
+
+5，以下可以正确获取结果集的有
+A Statement sta=con.createStatement():
+    ResultSet rst=sta.executeQuery(“select * from book”):
+B Statement sta=con.createStatement("select * from book”）;
+    ResultSet rst=sta.executeQuery()
+C PreparedStatement pst=con.prepareStatement():
+    ResultSet rst=pst.executeQuery(“select * from book”):
+D PreparedStatement pst=con.prepareStatement(“select * from book”);
+    ResultSet rst=pst.executeQuery().
+A，D是正确的:创建Statement是不传参的，PreparedStatement是需要传入sq1语句
