@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 /**
  *
  */
-public class CE019Exam {
+public class CE019Todo {
   public static void main(String[] args) throws Exception {
 //    my01();
     other01();
@@ -19,11 +19,10 @@ public class CE019Exam {
     while ((line = reader.readLine()) != null) {
 
     }
+
   }
+
   public static void other01() throws Exception {
 
   }
-
-
-
-  }
+}
