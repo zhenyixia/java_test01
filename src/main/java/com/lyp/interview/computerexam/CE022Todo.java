@@ -21,6 +21,7 @@ public class CE022Todo {
   public static void main(String[] args) throws Exception {
     //    my01();
     other01();
+
   }
 
   public static void my01() throws Exception {

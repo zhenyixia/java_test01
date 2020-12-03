@@ -15,6 +15,7 @@ public class CE021 {
   public static void main(String[] args) throws Exception {
         my01();
 //    other01();
+
   }
 
   public static void my01() throws Exception {
@@ -28,6 +29,7 @@ public class CE021 {
           break;
         }
         newArr[c] = true;
+
       }
       int count = 0;
       for (boolean has : newArr) {
