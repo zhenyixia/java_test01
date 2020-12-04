@@ -17,8 +17,18 @@ import java.util.ArrayList;
  */
 public class CE016 {
   public static void main(String[] args) throws Exception {
-    my01();
+//    my01();
     //    other01();
+    int big = 377;
+    int little = 319;
+    while(little !=0){
+      int tmp = big%little;
+      big = little;
+      little = tmp;
+    }
+
+    System.out.println(big);
+
   }
 
   /**

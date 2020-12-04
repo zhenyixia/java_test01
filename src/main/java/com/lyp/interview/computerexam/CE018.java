@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 题目描述 编写一个程序，将输入字符串中的字符按如下规则排序。
@@ -30,7 +33,12 @@ import java.util.Collections;
  */
 public class CE018 {
   public static void main(String[] args) throws Exception {
-    my01();
+//    StringBuilder sb = new StringBuilder();
+//    sb.append("abc").append("efg");
+//    sb.insert(1,"1");
+//    System.out.println(sb.toString());
+//    my01();
+    my02();
 //        other01();
 
   }
@@ -95,6 +103,59 @@ public class CE018 {
       }
 
       System.out.println(result);
+    }
+  }
+
+  public static void my02() throws Exception {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    String line;
+    while ((line = reader.readLine()) != null) {
+
+      char[] charArr = line.toCharArray();
+      // 求最小字符，忽略大小写
+      int min =128;
+      //存放特殊字符（非字母）的坐标及对应字符
+      Map<Integer,String> map = new HashMap<>();
+      List<Integer> keys = new ArrayList<>();
+      for(int i=0;i<charArr.length;i++){
+        char c = charArr[i];
+        if(c>=97&& c<123){
+          if(min > c -32){
+            min = c-32;
+          }
+        }else if(c>=65&& c<91){
+          if(min > c){
+            min = c;
+          }
+        }else{
+          map.put(i,String.valueOf(c));
+          keys.add(i);
+        }
+      }
+
+      StringBuilder sb = new StringBuilder();
+      while(min <128){
+        for(int i=0;i<charArr.length;i++){
+          char c = charArr[i];
+          if(c>=97&& c<123){
+            if(min == c -32){
+              sb.append(c);
+            }
+          }else if(c>=65&& c<91){
+            if(min == c){
+              sb.append(c);
+            }
+          }
+        }
+        min++;
+      }
+
+      for(int key:keys){
+        String val = map.get(key);
+        sb.insert(key,val);
+      }
+
+      System.out.println(sb.toString());
     }
   }
 
