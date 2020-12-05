@@ -19,15 +19,15 @@ public class CE016 {
   public static void main(String[] args) throws Exception {
 //    my01();
     //    other01();
-    int big = 377;
-    int little = 319;
-    while(little !=0){
-      int tmp = big%little;
-      big = little;
-      little = tmp;
+    int a = 377;
+    int b = 319;
+    while(b !=0){
+      int c = a%b;
+      a = b;
+      b = c;
     }
 
-    System.out.println(big);
+    System.out.println(a);
 
   }
 

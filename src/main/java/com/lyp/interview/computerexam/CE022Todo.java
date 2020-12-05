@@ -28,6 +28,10 @@ public class CE022Todo {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     String line;
     while ((line = reader.readLine()) != null) {
+      String[] inputs =line.split(" ");
+      int m = Integer.parseInt(inputs[0]);
+      int n = Integer.parseInt(inputs[1]);
+
 
     }
   }
