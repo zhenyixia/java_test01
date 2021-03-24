@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.TemporalAdjusters;
+import org.apache.commons.lang3.SerializationUtils;
 import org.junit.Test;
 
 public class LocalDateTest {
@@ -66,6 +67,13 @@ public class LocalDateTest {
     //判断是否为闰年
     boolean isLeapYear = tomorrow.isLeapYear();
     System.out.println(isLeapYear);
+
+    // 获取当前周的周一的日期
+    LocalDate currentWeekStartDay = LocalDate.now().with(TemporalAdjusters.previous(DayOfWeek.SUNDAY)).plusDays(1);
+    System.out.println(currentWeekStartDay);
+    System.out.println(currentWeekStartDay.minusWeeks(0));
+    LocalDate toWeekDay = currentWeekStartDay.plusDays(6);
+    System.out.println(toWeekDay);
   }
 
   @Test
@@ -92,7 +100,6 @@ public class LocalDateTest {
     int months = period.getMonths();
     int days = period.getDays();
     System.out.println("years:"+years+", months:"+months+", days:"+days);
-
 
 
   }
