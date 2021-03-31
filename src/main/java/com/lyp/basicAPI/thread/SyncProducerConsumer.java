@@ -1,7 +1,5 @@
 package com.lyp.basicAPI.thread;
 
-import org.apache.commons.beanutils.PropertyUtils;
-
 public class SyncProducerConsumer{
   public static void main(String[] args){
 
@@ -11,7 +9,7 @@ public class SyncProducerConsumer{
     Producer p3 = new Producer(ss);
     Consumer c = new Consumer(ss);
     new Thread(p).start();
-    // new Thread(p2).start();
+    // new Thread(p2).start(); // 多个生产者或消费者的时候需要使用notifyAll().
     // new Thread(p3).start();
     new Thread(c).start();
   }
@@ -41,7 +39,7 @@ class SyncStack{
     // 消费者的pop同理
     // if(index == breads.length){
     while(index == breads.length){
-
+      System.out.println("仓库满了");
       try{
         // 当前正在访问此对象的线程 wait，只有在synchonized下才能wait。wait的时候，锁就释放了。
         // wait需要唤醒，如果没有唤醒，则会挂掉。
@@ -52,21 +50,22 @@ class SyncStack{
     }
     // notify 叫醒一个正在wait的线程，一般与wait一一对应的使用。与wait一样都是Object的方法。
     // notifyAll 叫醒其它多个线程执行
-    this.notify();
     breads[index] = bread;
     index++;
+    this.notify();
   }
 
   public synchronized Bread pop(){
     if(index == 0){
+      System.out.println("库存没了！");
       try{
         this.wait();
       }catch(InterruptedException e){
         e.printStackTrace();
       }
     }
-    this.notify();
     index--;
+    this.notify();
     return breads[index];
   }
 }
@@ -102,11 +101,11 @@ class Consumer implements Runnable{
 
   @Override
   public void run(){
-    for(int i = 0; i < 20; i++){
+    for(int i = 0; i < 15; i++){
       Bread bread = ss.pop();
-      System.out.println("消费了： " + bread);
+      System.out.println("消费了： " + bread + ",消费了第" + (i + 1) + "次");
       try{
-        Thread.sleep(1000);
+        Thread.sleep(100);
       }catch(InterruptedException e){
         e.printStackTrace();
       }
